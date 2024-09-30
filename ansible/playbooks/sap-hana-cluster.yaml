@@ -29,6 +29,7 @@
     - name: Start pacemaker
       ansible.builtin.systemd:
         name: pacemaker
+        enabled: true
         state: started
 
   pre_tasks:
