@@ -228,7 +228,7 @@
       crm configure primitive rsc_aws_stonith stonith:external/ec2 \
       op start interval=0 timeout=180 \
       op stop interval=0 timeout=180 \
-      op monitor interval=120 timeout=60 \
+      op monitor interval=120 timeout=180 \
       meta target-role=Started \
       params tag={{ aws_stonith_tag}} pcmk_delay_max=15
   when: cloud_platform_is_aws
