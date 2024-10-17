@@ -211,7 +211,7 @@
 
 - name: Set cluster facts
   ansible.builtin.set_fact:
-    sbd_stonith: "{{ (crm_conf_show.stdout | regex_search('(rsc_iscsi_sbd)', '\\1'))[0] | default('false') }}"
+    sbd_stonith: "{{ (crm_conf_show.stdout | regex_search('(stonith-sbd)', '\\1'))[0] | default('false') }}"
     stonith_enabled: "{{ (crm_conf_show.stdout | regex_search('stonith-enabled=([a-z]*)', '\\1'))[0] | default('false') }}"
     stonith_action: "{{ (crm_conf_show.stdout | regex_search('stonith-action=([a-z]*)', '\\1'))[0] | default('false') }}"
     stonith_timeout: "{{ (crm_conf_show.stdout | regex_search('stonith-timeout=([a-z0-9]*)', '\\1'))[0] | default('false') }}"
@@ -243,7 +243,7 @@
 
 - name: Enable SBD [sbd]
   ansible.builtin.command:
-    cmd: crm configure primitive rsc_iscsi_sbd stonith:external/sbd
+    cmd: crm configure primitive stonith-sbd stonith:external/sbd
   when:
     - sbd_stonith | string | lower  == 'false'
     - use_sbd
