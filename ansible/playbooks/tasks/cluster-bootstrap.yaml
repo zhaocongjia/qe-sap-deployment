@@ -363,17 +363,6 @@
     - stonith_enabled | string | lower != 'true'
     - is_primary
 
-- name: Disable stonith action [aws]
-  ansible.builtin.command:
-    cmd: >-
-      crm configure property
-      $id="cib-bootstrap-options"
-      stonith-action=off
-  when:
-    - stonith_action != 'off'
-    - is_primary
-    - cloud_platform_is_aws
-
 - name: Set rsc_defaults resource stickiness [aws/gcp]
   ansible.builtin.command:
     cmd: >-
