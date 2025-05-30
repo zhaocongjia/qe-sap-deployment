@@ -62,7 +62,7 @@ variable "hana_data_disk_type" {
 variable "hana_data_disk_size" {
   description = "Disk size of the data volume"
   type        = string
-  default     = "350"
+  default     = "32"
 }
 
 variable "hana_log_disk_type" {
@@ -74,7 +74,7 @@ variable "hana_log_disk_type" {
 variable "hana_log_disk_size" {
   description = "Disk size of the hana log volume"
   type        = string
-  default     = "128"
+  default     = "16"
 }
 
 variable "hana_shared_disk_type" {
@@ -86,7 +86,7 @@ variable "hana_shared_disk_type" {
 variable "hana_shared_disk_size" {
   description = "Disk size of /hana/shared"
   type        = string
-  default     = "128"
+  default     = "32"
 }
 
 variable "hana_backup_disk_type" {
@@ -98,7 +98,7 @@ variable "hana_backup_disk_type" {
 variable "hana_backup_disk_size" {
   description = "Disk size of the disk used for /hana/backup"
   type        = string
-  default     = "256"
+  default     = "32"
 }
 
 variable "hana_usr_sap_disk_type" {
@@ -108,7 +108,7 @@ variable "hana_usr_sap_disk_type" {
 }
 
 variable "hana_usr_sap_disk_size" {
-  description = "Disk size of the disk used for /hana/backup"
+  description = "Disk size of the disk used for /usr/sap"
   type        = string
   default     = "64"
 }
